@@ -21,8 +21,7 @@ on:
    #   分,时,日,月,星期。每周六 20时执行一次 (UTC时间)
   
 env:
-  REPO_URL: https://github.com/jwkinko/openwrt-gl-ax1800
-  REPO_URL2: https://github.com/KoWming/Openwrt-LEDE-dl
+  REPO_URL: https://github.com/michael6555/openwrt-gl-ax1800
   REPO_BRANCH: master
   FREE_DISK_SH: scripts/free_disk_space.sh
   ENV_SH: scripts/environment.sh
@@ -91,11 +90,8 @@ jobs:
         ##[ -e $R8152_PATCH ] && mv $R8152_PATCH openwrt/package/lean/r8152/patches/
         ##[ -e $UBOOT_PATCH ] && mv $UBOOT_PATCH openwrt/package/boot/uboot-rockchip/patches
         ##[ -e $TARGET_PATCH ] && mv $TARGET_PATCH openwrt/target/linux/rockchip/patches-5.15
-        ##[ -e $USB3_FILE ] && mv $USB3_FILE openwrt/target/linux/rockchip/files/drivers/phy/rockchip
-        chmod -R 777 openwrt
+        ##[ -e $USB3_FILE ] && mv $USB3_FILE openwrt/target/linux/rockchip/files/drivers/phy/rockchi
         cd openwrt
-        rm -rf dl
-        git clone $REPO_URL2 dl
         chmod +x $GITHUB_WORKSPACE/$CLASH_CORE && $GITHUB_WORKSPACE/$CLASH_CORE
         make defconfig
         make download -j8 V=10
