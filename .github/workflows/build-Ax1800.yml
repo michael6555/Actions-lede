@@ -68,8 +68,6 @@ jobs:
         git clone $REPO_URL -b $REPO_BRANCH openwrt
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
         cd openwrt
-        rm -rf dl
-        git clone $REPO_URL2 -b $REPO_BRANCH dl
         echo "src-git ssrp https://github.com/fw876/helloworld.git" >> ./feeds.conf.default
 
     - name: 开启缓存
@@ -96,6 +94,8 @@ jobs:
         ##[ -e $USB3_FILE ] && mv $USB3_FILE openwrt/target/linux/rockchip/files/drivers/phy/rockchip
         chmod -R 777 openwrt
         cd openwrt
+        rm -rf dl
+        git clone $REPO_URL2 -b $REPO_BRANCH dl
         chmod +x $GITHUB_WORKSPACE/$CLASH_CORE && $GITHUB_WORKSPACE/$CLASH_CORE
         make defconfig
         make download -j8 V=10
