@@ -84,8 +84,7 @@ jobs:
 
     - name: 导入补丁和配置 & 下载文件
       run: |
-        git clone https://github.com/KoWming/Openwrt-LEDE-dl
-        mv Openwrt-LEDE-dl openwrt/dl
+        git clone https://github.com/KoWming/Openwrt-LEDE-dl dl
         [ -e files ] && mv files openwrt/files
         cat configs/r5-jdc.txt >> openwrt/.config
         cat configs/packages.txt >> openwrt/.config
