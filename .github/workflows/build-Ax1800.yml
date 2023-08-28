@@ -95,7 +95,7 @@ jobs:
         chmod -R 777 openwrt
         cd openwrt
         rm -rf dl
-        git clone $REPO_URL2 -b $REPO_BRANCH dl
+        git clone $REPO_URL2 -b dl
         chmod +x $GITHUB_WORKSPACE/$CLASH_CORE && $GITHUB_WORKSPACE/$CLASH_CORE
         make defconfig
         make download -j8 V=10
