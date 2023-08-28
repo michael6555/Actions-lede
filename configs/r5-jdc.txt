@@ -1,0 +1,31 @@
+# Kernel
+CONFIG_TARGET_ipq60xx=y
+CONFIG_TARGET_ipq60xx_generic=y
+CONFIG_TARGET_ipq60xx_generic_Default=n
+CONFIG_TARGET_ipq60xx_generic_DEVICE_xiaomi_redmi-ax5-jdcloud=y
+CONFIG_LUCI_LANG_en=y
+CONFIG_LUCI_LANG_zh_Hans=y
+#
+# Configure
+CONFIG_DEFAULT_busybox=y
+CONFIG_DEFAULT_kmod-ipv6=y
+CONFIG_PACKAGE_TURBOACC_INCLUDE_DNSFORWARDER=y
+CONFIG_PACKAGE_TURBOACC_INCLUDE_DNSPROXY=y
+#CONFIG_PACKAGE_TURBOACC_INCLUDE_OFFLOADING=y
+CONFIG_PACKAGE_kmod-ipt-offload=y
+CONFIG_PACKAGE_kmod-nf-flow=y
+#CONFIG_PACKAGE_TURBOACC_INCLUDE_SHORTCUT_FE=y
+#CONFIG_PACKAGE_kmod-fast-classifier=y
+#CONFIG_PACKAGE_kmod-shortcut-fe=y
+#CONFIG_PACKAGE_kmod-shortcut-fe-cm=y
+#
+#
+CONFIG_PACKAGE_kmod-zram=y
+CONFIG_PACKAGE_zram-swap=y
+CONFIG_PACKAGE_ipv6helper=y
+CONFIG_PACKAGE_dnsmasq_full_dhcpv6=y
+CONFIG_PACKAGE_6in4=y
+CONFIG_PACKAGE_6rd=y
+CONFIG_PACKAGE_6to4=y
+#luci
+CONFIG_PACKAGE_luci-app-cpufreq=y
