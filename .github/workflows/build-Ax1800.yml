@@ -84,7 +84,6 @@ jobs:
 
     - name: 导入补丁和配置 & 下载文件
       run: |
-        git clone https://github.com/KoWming/Openwrt-LEDE-dl dl
         [ -e files ] && mv files openwrt/files
         cat configs/r5-jdc.txt >> openwrt/.config
         cat configs/packages.txt >> openwrt/.config
@@ -92,7 +91,10 @@ jobs:
         ##[ -e $UBOOT_PATCH ] && mv $UBOOT_PATCH openwrt/package/boot/uboot-rockchip/patches
         ##[ -e $TARGET_PATCH ] && mv $TARGET_PATCH openwrt/target/linux/rockchip/patches-5.15
         ##[ -e $USB3_FILE ] && mv $USB3_FILE openwrt/target/linux/rockchip/files/drivers/phy/rockchip
+        chmod -R 777 openwrt
         cd openwrt
+        git clone https://github.com/KoWming/Openwrt-LEDE-dl.git dl
+        chmod +x dl
         chmod +x $GITHUB_WORKSPACE/$CLASH_CORE && $GITHUB_WORKSPACE/$CLASH_CORE
         make defconfig
         make download -j8 V=10
